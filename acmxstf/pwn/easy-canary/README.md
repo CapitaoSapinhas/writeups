@@ -22,9 +22,11 @@ In easy-canary there is a buffer-overflow opportunity to buf. The buf has a size
 ### Just a bit more theory.
 Before we dive into the exploit we need to understand how the printf() works in C.
 Imagine we have a sentence like this:
-"Hey we are Capitão Sapinhas and we are a ctf team we love to do ctfs"
+
+`"Hey we are Capitão Sapinhas and we are a ctf team we love to do ctfs"`
+
 What's missing here? Punctuation! If we asked someone to read the first sentence they would not know that it stops at "ctf team" because there is no period.
-The way that printf() works is exactly the same. For printf() to know when to stop printing stuff it needs to have a "period", in this case a null byte "\x00". Strings are null terminated (ex: "car\x00"), so functions like printf() know where to stop printing data and not reveal any sensitive information.
+The way that printf() works is exactly the same. For printf() to know where to stop printing stuff it needs to have a "period", in this case a null byte "\x00". Strings are null terminated (ex: "car\x00"), so functions like printf() know where to stop printing data and not reveal any sensitive information.
 
 Now that we have that out of the way we can understand the exploit.
 
