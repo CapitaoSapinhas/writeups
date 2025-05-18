@@ -1,11 +1,11 @@
-#Easy-Canary
+# Easy-Canary
 
 This challenge consisted of a ret2win, with stack canaries implemented.
 
-##Prerequisites:
+## Prerequisites:
 Know how buffer overflows work.
 
-##What are stack canaries?
+## What are stack canaries?
 The term comes from the historical use of canaries in coal mines. Since canaries are more vulnerable to toxic gases than humans are, coal miners would bring canary birds with them. When the canary died, they would know that they would also died soon and could safely evacuate the mine.
 Stack canaries are "secret" values placed on the stack just before the return address. Attackers usually have the goal of changing the return address with a BOF (buffer overflow), but to do that, the canary must be overwritten as well.
 So compilers insert code to the following:
@@ -16,10 +16,10 @@ So compilers insert code to the following:
 
 For more information, check out this article: https://ctf101.org/binary-exploitation/stack-canaries/
 
-##What was the vulnerability?
+## What was the vulnerability?
 In easy-canary there is a buffer-overflow opportunity to buf. The buf has a size of 40 bytes, but we can insert 256 bytes. This leads us to try to overwrite the return address with a simple BOF. However, since the canary is present, a simple BOF won't work, the program will just crash, because the canary value won't stay the same.
 
-###Just a bit more theory.
+### Just a bit more theory.
 Before we dive into the exploit we need to understand how the printf() works in C.
 Imagine we have a sentence like this:
 "Hey we are Capitão Sapinhas and we are a ctf team we love to do ctfs"
