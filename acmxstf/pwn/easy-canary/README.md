@@ -37,12 +37,15 @@ io.send(payload)
 
 In this snippet all we do is fill the buffer with 40 null bytes, and one "x".
 Visually speaking
+
 Before the attack:
+
 `
 [buffer(40 bytes)][canary(eg:"\x00\xFF\xFF\xFF\xFF\xFF\xFF\xFF)][returnaddress]
 `
 
 After the attack:
+
 `
 [buffer(filled)][canary(eg:"x\xFF\xFF\xFF\xFF\xFF\xFF\xFF)][returnaddress]
 `
