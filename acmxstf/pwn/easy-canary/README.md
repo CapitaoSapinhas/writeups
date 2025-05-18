@@ -6,7 +6,7 @@ This challenge consisted of a ret2win, with stack canaries implemented.
 Know how buffer overflows work.
 
 ## What are stack canaries?
-The term comes from the historical use of canaries in coal mines. Since canaries are more vulnerable to toxic gases than humans are, coal miners would bring canary birds with them. When the canary died, they would know that they would also died soon and could safely evacuate the mine.
+The term comes from the historical use of canaries in coal mines. Since canaries are more vulnerable to toxic gases than humans are, coal miners would bring canary birds with them. When the canary died, they would know that they would also die soon and could safely evacuate the mine.
 Stack canaries are "secret" values placed on the stack just before the return address. Attackers usually have the goal of changing the return address with a BOF (buffer overflow), but to do that, the canary must be overwritten as well.
 So compilers insert code to the following:
 
