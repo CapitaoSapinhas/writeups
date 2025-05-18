@@ -41,6 +41,7 @@ Before the attack:
 `
 [buffer(40 bytes)][canary(eg:"\x00\xFF\xFF\xFF\xFF\xFF\xFF\xFF)][returnaddress]
 `
+
 After the attack:
 `
 [buffer(filled)][canary(eg:"x\xFF\xFF\xFF\xFF\xFF\xFF\xFF)][returnaddress]
