@@ -1,0 +1,46 @@
+➜  fsstat xoramais.img
+FILE SYSTEM INFORMATION
+--------------------------------------------
+File System Type: FAT16
+
+OEM Name: mkfs.fat
+Volume ID: 0x47b07694
+Volume Label (Boot Sector): NO NAME
+Volume Label (Root Directory):
+File System Type Label: FAT16
+
+Sectors before file system: 0
+
+File System Layout (in sectors)
+Total Range: 0 - 20479
+* Reserved: 0 - 3
+** Boot Sector: 0
+* FAT 0: 4 - 23
+* FAT 1: 24 - 43
+* Data Area: 44 - 20479
+** Root Directory: 44 - 75
+** Cluster Area: 76 - 20479
+
+METADATA INFORMATION
+--------------------------------------------
+Range: 2 - 326982
+Root Directory: 2
+
+CONTENT INFORMATION
+--------------------------------------------
+Sector Size: 512
+Cluster Size: 2048
+Total Cluster Range: 2 - 5102
+
+FAT CONTENTS (in sectors)
+--------------------------------------------
+80-83 (4) -> EOF
+➜  fls xoramais.img
+r/r 4:  key.txt
+r/r * 6:        secret.bin
+v/v 326979:     $MBR
+v/v 326980:     $FAT1
+v/v 326981:     $FAT2
+V/V 326982:     $OrphanFiles
+➜  icat xoramais.img 6 > secret.bin
+➜  icat xoramais.img 6 > key.txt
